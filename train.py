@@ -13,11 +13,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
-from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
-from keras.models import Model
-from keras.layers import Dense, Flatten, Conv1D, Dropout, Embedding, Input, Activation
-from keras.callbacks import ModelCheckpoint
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Dense, Flatten, Conv1D, Dropout, Embedding, Input, Activation
+from tensorflow.keras.callbacks import ModelCheckpoint
 #from keras import backend as K
 
 data = pd.read_csv("data_processed.csv")
