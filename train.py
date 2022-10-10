@@ -18,7 +18,7 @@ from keras.preprocessing.sequence import pad_sequences
 from keras.models import Model
 from keras.layers import Dense, Flatten, Conv1D, Dropout, Embedding, Input, Activation
 from keras.callbacks import ModelCheckpoint
-from keras import backend as K
+#from keras import backend as K
 
 data = pd.read_csv("data_processed.csv")
 label = data['badword']
