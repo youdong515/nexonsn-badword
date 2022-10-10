@@ -1,6 +1,6 @@
 import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 import time
 import json
@@ -16,9 +16,7 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Model, load_model
-from tensorflow.keras.layers import (Dense, Flatten, Conv1D, Dropout, Embedding, Input, Activation, add, multiply, 
-                                     BatchNormalization, MaxPooling1D, AveragePooling1D, GlobalAveragePooling1D, GlobalMaxPool1D,
-                                     GRU, Bidirectional)
+from tensorflow.keras.layers import Dense, Flatten, Conv1D, Dropout, Embedding, Input, Activation
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras import backend as K
