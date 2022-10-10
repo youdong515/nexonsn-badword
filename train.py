@@ -1,6 +1,6 @@
-import os
-os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+#import os
+#os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+#os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 import time
 import json
@@ -9,17 +9,16 @@ import inspect
 import seaborn as sns
 import pandas as pd 
 import numpy as np
-import tensorflow as tf
+#import tensorflow as tf
 import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.models import Model, load_model
-from tensorflow.keras.layers import Dense, Flatten, Conv1D, Dropout, Embedding, Input, Activation
-from tensorflow.keras.callbacks import ModelCheckpoint
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras import backend as K
+from keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+from keras.models import Model
+from keras.layers import Dense, Flatten, Conv1D, Dropout, Embedding, Input, Activation
+from keras.callbacks import ModelCheckpoint
+from keras import backend as K
 
 data = pd.read_csv("data_processed.csv")
 label = data['badword']
