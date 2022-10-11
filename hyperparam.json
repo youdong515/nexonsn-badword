@@ -1,0 +1,1 @@
+{"hyperparam - max_len": 64, "hyperparam - learning_rate": 0.01, "hyperparam - batch_size": 128, "hyperparam - epochs": 10, "hyperparam - valid_split": 0.1}
