@@ -19,7 +19,10 @@ jobs:
           git fetch --prune ## https://git-scm.com/docs/git-fetch
           dvc metrics diff --show-md master > report.md
 
-          echo "## Validating results by region"
+          echo "## training information"
           cml-publish learning_info.png --md >> report.md
+          cml-send-comment report.md
+
+          echo "## confusion matrix by validation data"
           cml-publish confusion_matrix.png --md >> report.md
           cml-send-comment report.md
