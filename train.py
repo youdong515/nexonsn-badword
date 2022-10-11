@@ -26,7 +26,7 @@ label = data['badword']
 max_length = 64
 label_num = 1
 learning_rate = 0.001
-batch_size = 32
+batch_size = 64
 epochs = 10
 validation_split = 0.1
 
