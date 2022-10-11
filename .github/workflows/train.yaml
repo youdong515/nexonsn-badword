@@ -18,7 +18,6 @@ jobs:
 
           git fetch --prune ## https://git-scm.com/docs/git-fetch
           dvc metrics diff --show-md master > report.md
-          dvc hyperparam diff --show-md master > report.md
 
           echo "## training info and confusion matrix by validation data"
           cml-publish learning_info.png --md >> report.md
