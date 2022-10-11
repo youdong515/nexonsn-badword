@@ -9,6 +9,8 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
+          cache: 'pip'
+      - run: pip install -r requirements.txt
       - name: cml_run
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
