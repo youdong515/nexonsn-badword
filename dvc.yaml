@@ -12,7 +12,8 @@ stages:
     - train.py
     - data_processed.csv
     outs:
-    - by_region.png
+    - learning_info.png
+    - confusion_matrix.png
     metrics:
     - metrics.json:
         cache: false

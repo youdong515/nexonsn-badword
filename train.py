@@ -28,6 +28,7 @@ label_num = 1
 learning_rate = 0.001
 batch_size = 32
 epochs = 10
+validation_split = 0.1
 
 token = Tokenizer(num_words=None, filters=r'[^a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ\u4e00-\u9fff]|(.)\1{2,}', char_level=True)
 token.fit_on_texts(data['txt'])
@@ -59,6 +60,11 @@ model = Model(inputs, dense)
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, validation_split=0.1)
 
+hist = model.fit(x_train, y_train, 
+     epochs=epochs, 
+     batch_size=batch_size, 
+     validation_split=validation_split)
+
 y_valid = pd.DataFrame(y_valid).reset_index(drop=True)
 
 # test
@@ -89,8 +95,30 @@ with open("metrics.json", 'w') as outfile:
         json.dump({ "accuracy": ac, "recall": rs, "precision":ps, "f1_score":f1}, outfile)
 
 # Bar plot by region
+fig, loss_ax = plt.subplots()
 
+acc_ax = loss_ax.twinx()
+
+loss_ax.plot(hist.history['loss'], 'y', label='train loss')
+loss_ax.plot(hist.history['val_loss'], 'r', label='val loss')
+loss_ax.set_ylim([0.0, 3.0])
+
+acc_ax.plot(hist.history['accuracy'], 'b', label='train acc')
+acc_ax.plot(hist.history['val_accuracy'], 'g', label='val acc')
+
+acc_ax.set_ylim([0.0, 1.0])
+
+loss_ax.set_xlabel('epoch')
+loss_ax.set_ylabel('loss')
+acc_ax.set_ylabel('accuray')
+
+loss_ax.legend(loc='upper left')
+acc_ax.legend(loc='lower left')
+
+plt.savefig("learning_info.png",dpi=80)
+
+# confusion matrix plot
 cm_matrix = pd.DataFrame(data=confusion_matrix, columns=['Predict Badword:1', 'Predict Badword:0'], 
                                  index=['Actual Badword:1', 'Actual Badword:0'])
 sns.heatmap(cm_matrix, annot=True, fmt='d', cmap='YlGnBu')
-plt.savefig("by_region.png",dpi=80)
+plt.savefig("confusion_matrix.png",dpi=80)
