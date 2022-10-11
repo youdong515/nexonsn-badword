@@ -92,9 +92,9 @@ f1 = f1_score(y_true, y_pred)
 
 # Now print to file
 with open("metrics.json", 'w') as outfile:
-        json.dump({ "perfo :: accuracy": ac, "perfo :: recall": rs, "perfo :: precision": ps, "perfo :: f1_score": f1,
-                    "hyperparam :: max_len": max_length, "hyperparam :: learning_rate": learning_rate, "hyperparam :: batch_size": batch_size, 
-                    "hyperparam :: epochs": epochs, "hyperparam :: valid_split": validation_split}, outfile)
+        json.dump({ "perfo - accuracy": ac, "perfo - recall": rs, "perfo - precision": ps, "perfo - f1_score": f1,
+                    "hyperparam - max_len": max_length, "hyperparam - learning_rate": learning_rate, "hyperparam - batch_size": batch_size, 
+                    "hyperparam - epochs": epochs, "hyperparam - valid_split": validation_split}, outfile)
 
 # Bar plot by region
 fig, loss_ax = plt.subplots()
