@@ -90,9 +90,12 @@ rs = recall_score(y_true, y_pred)
 ps = precision_score(y_true, y_pred)
 f1 = f1_score(y_true, y_pred)
 
+with open("hyperparameter.json", 'w') as outfile:
+        json.dump({ "max_length": max_length, "learning_rate": learning_rate, "batch_size": batch_size, "epochs": epochs, "validation_split": validation_split}, outfile)
+
 # Now print to file
 with open("metrics.json", 'w') as outfile:
-        json.dump({ "accuracy": ac, "recall": rs, "precision":ps, "f1_score":f1}, outfile)
+        json.dump({ "accuracy": ac, "recall": rs, "precision": ps, "f1_score": f1}, outfile)
 
 # Bar plot by region
 fig, loss_ax = plt.subplots()
