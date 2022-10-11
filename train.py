@@ -118,6 +118,7 @@ acc_ax.legend(loc='lower left')
 plt.savefig("learning_info.png",dpi=80)
 
 # confusion matrix plot
+plt.clf()
 cm_matrix = pd.DataFrame(data=confusion_matrix, columns=['Predict Badword:1', 'Predict Badword:0'], 
                                  index=['Actual Badword:1', 'Actual Badword:0'])
 sns.heatmap(cm_matrix, annot=True, fmt='d', cmap='YlGnBu')
