@@ -17,6 +17,5 @@ stages:
     metrics:
     - metrics.json:
         cache: false
-    metrics:
     - hyperparam.json:
         cache: false
