@@ -25,9 +25,9 @@ label = data['badword']
 
 max_length = 64
 label_num = 1
-learning_rate = 0.001
-batch_size = 64
-epochs = 20
+learning_rate = 0.01
+batch_size = 128
+epochs = 5
 validation_split = 0.1
 
 token = Tokenizer(num_words=None, filters=r'[^a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ\u4e00-\u9fff]|(.)\1{2,}', char_level=True)
@@ -91,10 +91,12 @@ ps = precision_score(y_true, y_pred)
 f1 = f1_score(y_true, y_pred)
 
 # Now print to file
-with open("metrics.json", 'w') as outfile:
-        json.dump({ "perfo - accuracy": ac, "perfo - recall": rs, "perfo - precision": ps, "perfo - f1_score": f1,
-                    "hyperparam - max_len": max_length, "hyperparam - learning_rate": learning_rate, "hyperparam - batch_size": batch_size, 
+with open("hyperparam.json", 'w') as outfile:
+        json.dump({ "hyperparam - max_len": max_length, "hyperparam - learning_rate": learning_rate, "hyperparam - batch_size": batch_size, 
                     "hyperparam - epochs": epochs, "hyperparam - valid_split": validation_split}, outfile)
+
+with open("metrics.json", 'w') as outfile:
+        json.dump({ "perfo - accuracy": ac, "perfo - recall": rs, "perfo - precision": ps, "perfo - f1_score": f1}, outfile)
 
 # Bar plot by region
 fig, loss_ax = plt.subplots()
