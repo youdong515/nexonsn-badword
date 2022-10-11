@@ -25,8 +25,8 @@ label = data['badword']
 
 max_length = 64
 label_num = 1
-learning_rate = 0.005
-batch_size = 32
+learning_rate = 0.001
+batch_size = 64
 epochs = 10
 validation_split = 0.1
 
@@ -90,7 +90,7 @@ rs = recall_score(y_true, y_pred)
 ps = precision_score(y_true, y_pred)
 f1 = f1_score(y_true, y_pred)
 
-with open("hyperparameter.json", 'w') as outfile:
+with open("hyperparam.json", 'w') as outfile:
         json.dump({ "max_length": max_length, "learning_rate": learning_rate, "batch_size": batch_size, "epochs": epochs, "validation_split": validation_split}, outfile)
 
 # Now print to file
