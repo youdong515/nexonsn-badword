@@ -15,7 +15,7 @@ stages:
     - learning_info.png
     - confusion_matrix.png
     metrics:
-    - metrics.json:
+    - test_info.json:
         cache: false
     - hyperparam.json:
         cache: false

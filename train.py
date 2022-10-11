@@ -25,9 +25,9 @@ label = data['badword']
 
 max_length = 64
 label_num = 1
-learning_rate = 0.005
-batch_size = 64
-epochs = 20
+learning_rate = 0.01
+batch_size = 128
+epochs = 10
 validation_split = 0.1
 
 token = Tokenizer(num_words=None, filters=r'[^a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ\u4e00-\u9fff]|(.)\1{2,}', char_level=True)
@@ -95,7 +95,7 @@ with open("hyperparam.json", 'w') as outfile:
         json.dump({ "hyperparam - max_len": max_length, "hyperparam - learning_rate": learning_rate, "hyperparam - batch_size": batch_size, 
                     "hyperparam - epochs": epochs, "hyperparam - valid_split": validation_split}, outfile)
 
-with open("metrics.json", 'w') as outfile:
+with open("test_info.json", 'w') as outfile:
         json.dump({ "perfo - accuracy": ac, "perfo - recall": rs, "perfo - precision": ps, "perfo - f1_score": f1}, outfile)
 
 # Bar plot by region
